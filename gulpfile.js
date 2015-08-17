@@ -18,21 +18,26 @@ gulp.task('styles', function() {
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('www/styles'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
+    // .pipe(minifycss())
     .pipe(gulp.dest('www/styles'));
 });
 
 gulp.task('scripts', function() {
   return gulp.src([
-      'app/assets/libs/jquery/dist/jquery.js',
-      'app/assets/libs/socket.io-client/socket.io.js',
+      'app/assets/libs/angular/angular.js',
+      'app/assets/libs/angular-route/angular-route.js',
+      'app/assets/libs/angular-aria/angular-aria.js',
+      'app/assets/libs/angular-animate/angular-animate.js',
+      'app/assets/libs/angular-material/angular-material.js',
       'app/scripts/default.js',
+      'app/scripts/misc/config.js',
+      'app/scripts/controllers/*'
     ])
     .pipe(plumber())
     .pipe(concat('app.js'))
     .pipe(gulp.dest('www/scripts'))
     .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(gulp.dest('www/scripts'));
 });
 
