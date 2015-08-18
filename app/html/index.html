@@ -24,7 +24,7 @@
             <div ng-controller="ListController">
               <md-list>
                 <md-subheader class="md-no-sticky">Items</md-subheader>
-                <div class="item-container" ng-repeat="item in list.items">
+                <div class="item-container" ng-repeat="item in list.items track by $index">
                   <md-list-item class="md-3-line">
                   <span class="md-avatar"><i class="fa fa-battery-full"></i></span>
                   <div class="md-list-item-text">

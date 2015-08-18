@@ -11,12 +11,12 @@ application.controller('MainController', ['$scope', function($scope, $mdSidenav)
         $scope.data.selectedIndex = Math.max($scope.data.selectedIndex - 1, 0);
     };
     $scope.detectPlatform = function() {
-        if(false) {
+        if(!navigator.userAgent.match(/Windows Phone/i) || !navigator.userAgent.match(/iemobile/i)) {
             $scope.data.bottom = true;
         }
     };
-    
-    if(navigator.userAgent.match(/Windows Phone/i) || navigator.userAgent.match(/iemobile/i)) {
-        $scope.data.bottom = true;
-    }
+   
+   $scope.detectPlatform();
+
+
 }]);

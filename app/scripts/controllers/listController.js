@@ -6,5 +6,6 @@ application.controller('ListController', function ($scope, list) {
       newList.splice(id, 1);
     }
     $scope.list.items = JSON.parse(JSON.stringify(newList));
+    localStorage.setItem('inventory', JSON.stringify($scope.list.items));
   };
 })
