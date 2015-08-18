@@ -11,7 +11,7 @@
   </head>
   <body layout="column" ng-controller="MainController">
     <md-content class="">
-      <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}">
+      <md-tabs class="md-accent" md-selected="data.selectedIndex" md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}" md-swipe-left="next()" md-swipe-right="previous()">
         <md-tab id="tab1">
           <md-tab-label>Home</md-tab-label>
           <md-tab-body>
