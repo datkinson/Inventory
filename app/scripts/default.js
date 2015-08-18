@@ -16,5 +16,5 @@ var app = {
 app.initialize();
 
 
-var application = angular.module('InventoryApplication', ['ngMaterial', 'ngRoute']);
+var application = angular.module('InventoryApplication', ['ngMaterial', 'ngRoute', 'ngMessages']);
 

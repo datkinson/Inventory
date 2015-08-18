@@ -28,9 +28,11 @@ gulp.task('scripts', function() {
       'app/assets/libs/angular-route/angular-route.js',
       'app/assets/libs/angular-aria/angular-aria.js',
       'app/assets/libs/angular-animate/angular-animate.js',
+      'app/assets/libs/angular-messages/angular-messages.js',
       'app/assets/libs/angular-material/angular-material.js',
       'app/scripts/default.js',
       'app/scripts/misc/config.js',
+      'app/scripts/services/*',
       'app/scripts/controllers/*'
     ])
     .pipe(plumber())
@@ -55,13 +57,20 @@ gulp.task('html', function () {
     .pipe(gulp.dest('www'));
 });
 
+gulp.task('fonts', function () {
+  return gulp.src('app/assets/libs/font-awesome/fonts/**/*')
+    .pipe(plumber())
+    .pipe(newer('app/assets/libs/font-awesome/fonts/**/*'))
+    .pipe(gulp.dest('www/fonts'));
+});
+
 gulp.task('clean', function() {
   return gulp.src(['www/styles', 'www/scripts', 'www/assets/img'], { read: false })
     .pipe(rimraf());
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images', 'html');
+    gulp.start('styles', 'scripts', 'images', 'html', 'fonts');
 });
 
 gulp.task('watch', function() {
