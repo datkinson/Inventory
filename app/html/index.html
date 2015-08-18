@@ -15,15 +15,26 @@
         <md-tab id="tab1">
           <md-tab-label>Home</md-tab-label>
           <md-tab-body>
-            Home content to go here explaining application and providing basic controls.
+            <md-toolbar class="md-primary">
+              <h1 class="md-toolbar-tools">
+                Inventory
+              </h1>
+            </md-toolbar>
+            <p class="inset">
+              Use the tabs or swipe left and right to navigate.
+            </p>
           </md-tab-body>
         </md-tab>
         <md-tab id="tab2">
           <md-tab-label>Items</md-tab-label>
           <md-tab-body>
             <div ng-controller="ListController">
+              <md-toolbar class="md-primary">
+                <h1 class="md-toolbar-tools">
+                  Items
+                </h1>
+              </md-toolbar>
               <md-list>
-                <md-subheader class="md-no-sticky">Items</md-subheader>
                 <div class="item-container" ng-repeat="item in list.items track by $index">
                   <md-list-item class="md-3-line">
                   <span class="md-avatar"><i class="fa fa-battery-full"></i></span>
@@ -45,27 +56,33 @@
           <md-tab-label>Input</md-tab-label>
           <md-tab-body>
             <div ng-controller="InputController">
-              <h2>Please enter a new item</h2>
+              <md-toolbar class="md-primary">
+                <h1 class="md-toolbar-tools">
+                  Please enter a new item
+                </h1>
+              </md-toolbar>
               <md-content layout-padding class="autoScroll">
-                <md-input-container class="md-icon-float" >
-                  <md-icon><i class="fa fa-tag"></i></md-icon>
-                  <input ng-model="newItem.name" type="text" placeholder="name" ng-required="true">
-                </md-input-container>
-                <md-input-container>
-                  <md-icon><i class="fa fa-battery-full"></i></md-icon>
-                  <input ng-model="newItem.type" type="text" placeholder="type">
-                </md-input-container>
-                <md-input-container >
-                  <md-icon><i class="fa fa-plus-square"></i></md-icon>
-                  <input ng-model="newItem.value" type="text" placeholder="value">
-                </md-input-container>
+                <form name="itemForm" novalidate>
+                  <md-input-container class="md-icon-float" >
+                    <md-icon><i class="fa fa-tag"></i></md-icon>
+                    <input ng-model="newItem.name" type="text" placeholder="name" ng-required="true">
+                  </md-input-container>
                   <md-input-container>
-                  <md-icon><i class="fa fa-sort-numeric-asc"></i></md-icon>
-                  <input ng-model="newItem.quantity" type="number" placeholder="quantity" ng-required="true">
-                </md-input-container>
-                <md-input-container>
-                  <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
-                </md-input-container>
+                    <md-icon><i class="fa fa-battery-full"></i></md-icon>
+                    <input ng-model="newItem.type" type="text" placeholder="type">
+                  </md-input-container>
+                  <md-input-container >
+                    <md-icon><i class="fa fa-plus-square"></i></md-icon>
+                    <input ng-model="newItem.value" type="text" placeholder="value">
+                  </md-input-container>
+                    <md-input-container>
+                    <md-icon><i class="fa fa-sort-numeric-asc"></i></md-icon>
+                    <input ng-model="newItem.quantity" type="number" placeholder="quantity" ng-required="true">
+                  </md-input-container>
+                  <md-input-container>
+                    <md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+                  </md-input-container>
+                </form>
               </md-content>
             </div>
           </md-tab-body>
